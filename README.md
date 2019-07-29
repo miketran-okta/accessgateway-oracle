@@ -152,6 +152,7 @@ You will be redirected to Okta for authentication and and upon successful valida
 
 <img src="https://github.com/miketran-okta/accessgateway-oracle/blob/master/10.png"/>
 
+**Special thanks to <a href="https://www.linkedin.com/in/fredericohakamine/">Frederico Hakamine</a> and his efforts on putting together the  <a href="https://www.okta.com/security-blog/2018/10/learn-to-integrate-okta-and-oracle-weblogic-with-the-ldap-interface/">Okta LDAP Interface guide</a> which was resused for this article.**
 
   
   
