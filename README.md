@@ -1,6 +1,6 @@
 # Okta Access Gateway for Oracle Fusion Middlware and Apps
 
-This article will describe how to configure the Okta Acccess Gateway to secure various Oracle applications such as Application Development Framework (ADF), Oracle WebCenter, Business Intelligence Enterprise Edition (OBIEE), SOA Suite, and other applications that are deployed within a WebLogic container.  In this example, OAG will be used to control access to the WebLogic administration console but the same steps can be reused across other Oracle applications deployed in WebLogic.
+This article will describes how to configure the Okta Acccess Gateway to secure various Oracle applications such as Application Development Framework (ADF), Oracle WebCenter, Business Intelligence Enterprise Edition (OBIEE), SOA Suite, and other applications that are deployed within a WebLogic container.  In this example, OAG will be used to control access to the WebLogic administration console but the same steps can be reused for other Oracle applications deployed in WebLogic.
 
 ## Background
 
@@ -28,7 +28,7 @@ The following information desceibes how to configure Oracle applications that ha
 
 # Okta Access Gateway
 
-This section assumes at you have your Okta tenet setup and the Okta Access Gateway deloyed in your environment.
+This section assumes at you have an Okta tenet setup and the Okta Access Gateway deloyed in your environment.
 
 ## Add the hostname of the WebLogic container where your app is sitting to the OAG hosts file
 
@@ -39,7 +39,8 @@ This section assumes at you have your Okta tenet setup and the Okta Access Gatew
 <br>
 <img src="https://github.com/miketran-okta/accessgateway-oracle/blob/master/oag/2.png"/>
 
-- add the IP adderess of your WebLogic server and then save your settings
+- add the IP adderess and hostname of the WebLogic server where your application is deployed
+- Save the new host edits and commit the changes.
 
 # WebLogic
 
