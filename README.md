@@ -22,7 +22,7 @@ The following guide outlines how to secure Oracle applications that have been in
 
 - Setup the Okta Identity Cloud
 - Setup the Okta Access Gateway and setup Okta as the IDP.  OAG documentation can be found <a href="https://help.okta.com/en/prod/Content/Topics/Access-Gateway/ag-main.htm">here</a>.
-- An application deployed within a WebLogic container ie OBIEE, SOA, WebCenter.  This example will use the default WebLogic administration console
+- An application deployed within a WebLogic container ie OBIEE, SOA, WebCenter.  This example will use Okta Access Gateway to protect the WebLogic administration console.  If you do not have WebLogic, you can find instructions to install it <a href="https://github.com/miketran-okta/weblogic">here</a>
 - Support for TLS 1.2 for your WebLogic container
 
 
