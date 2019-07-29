@@ -46,7 +46,7 @@ This section assumes at you have an Okta tenet setup and the Okta Access Gateway
 
 ## WebLogic 10.3.6 - SSL Setup
 
-Okta leverages TLS1.2 for its various endpoints including the LDAP Interface which will be used to populate the JAAS principals and subjects which Oracle uses for authorization.  This section outlines how to setup SSL for WebLogic 10.3.6, but can be skipped to the next section (OAM Identity Asserter setup) for WebLogic 12c+.
+Okta leverages TLS1.2 for its various endpoints including the LDAP Interface which will be used to populate the JAAS principals and subjects which Oracle uses for authorization.  This section outlines how to setup SSL for TLSv1.2 and WebLogic 10.3.6, but if you are on WebLogic 12c+ then you can skip to the next section.
 
 - Log into the administrator console of your WebLogic instnace. Typically that is at `http://localhost:7001/console`
 - Select **base_domain -> Environments -> Servers -> AdminServer(admin)**
