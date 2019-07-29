@@ -1,0 +1,25 @@
+{
+
+  "name": "Okta Access Gateway for Oracle Fusion Middleware and Apps",
+
+  "description": "This article will describes how to configure the Okta Acccess Gateway to secure Oracle applications such as Application Development Framework (ADF), Oracle WebCenter, Business Intelligence Enterprise Edition (OBIEE), SOA Suite, and other applications that are deployed within a WebLogic container. In this example, OAG will be used to control access to the WebLogic Administration console but the same steps can be reused for other Oracle applications deployed in WebLogic.",
+
+  "url": "https://github.com/miketran-okta/accessgateway-oracle",  
+
+  "categories": [
+
+    "user-management",
+
+    "authentication",
+
+    "authorization",
+
+    "sso",
+
+    "api-authentication"
+
+  ]
+
+}
+
+		 
