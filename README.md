@@ -1,6 +1,6 @@
 # Okta Access Gateway for Oracle Fusion Middlware and Apps
 
-This article will describes how to configure the Okta Acccess Gateway to secure various Oracle applications such as Application Development Framework (ADF), Oracle WebCenter, Business Intelligence Enterprise Edition (OBIEE), SOA Suite, and other applications that are deployed within a WebLogic container.  In this example, OAG will be used to control access to the WebLogic administration console but the same steps can be reused for other Oracle applications deployed in WebLogic.
+This article will describes how to configure the Okta Acccess Gateway to secure Oracle applications such as Application Development Framework (ADF), Oracle WebCenter, Business Intelligence Enterprise Edition (OBIEE), SOA Suite, and other applications that are deployed within a WebLogic container.  In this example, OAG will be used to control access to the WebLogic Administration console but the same steps can be reused for other Oracle applications deployed in WebLogic.
 
 ## Background
 
@@ -16,7 +16,7 @@ along with the underlying infrastructure comprising server compute, storage, net
 
 Today's large enterprise organizations are looking to futher exploit the benefits of cloud services, retire their legacy on-premise services and eliminate technical debt.  Okta's Identity Cloud and it's Access Gateway can help organizations leverage a modern cloud-native security service for their legacy apps and include components such as strong Multi-Factor Authentication, and contextual access incorporating modern signals such as device posture, risk, behavior and threat intelligence.
 
-The following information desceibes how to configure Oracle applications that have been integrated with Oracle Identity Management with Okta's Identity Cloud and Okta Access Gateway.
+The following guide outlines how to secure Oracle applications that have been integrated with Oracle Identity Management and secure them with Okta's Identity Cloud and Okta Access Gateway instead.
 
 # Prerequisites
 
@@ -44,6 +44,10 @@ This section assumes at you have an Okta tenet setup and the Okta Access Gateway
 
 # WebLogic
 
+## WebLogic 10.3.6 - SSL Setup
+
+Okta leverages TLS1.2 for its various endpoints including the LDAP Interface which will be used to populate the JAAS principals and subjects which Oracle uses for authorization.  This section outlines how to setup SSL for WebLogic 10.3.6, but can be skipped to the next section (OAM Identity Asserter setup) for WebLogic 12c+.
+
 - Log into the administrator console of your WebLogic instnace. Typically that is at `http://localhost:7001/console`
 - Select **base_domain -> Environments -> Servers -> AdminServer(admin)
 - Select **SSL -> Advanced **
@@ -52,6 +56,10 @@ This section assumes at you have an Okta tenet setup and the Okta Access Gateway
 - Select the checkbox for **Use JSSE SSL**
 
 <img src="https://github.com/miketran-okta/accessgateway-oracle/blob/master/1.png"/>
+
+## OAM Identity Asserter
+
+If you already are using Oracle Access Manager, then you can leave your existing OAMIdentityAsserter as is.  The OAM Identity Asserter enables header-based authentication by looking for a HTTP header named `OAM_REMOTE_USER` with the username of the authenticated user.  In this setup, that header will populated via Okta's Access Gateway.  If you do not have an OAM Identity Asserter, follow the steps below to add it.
 
 - Select **base_domain -> Security Realms -> myrealm**
 - Select the **Providers** tab and then click **New**
@@ -62,6 +70,8 @@ This section assumes at you have an Okta tenet setup and the Okta Access Gateway
 - Select **Sufficient** for the `Control Flag` and add **OAM_REMOTE_USER** under the Choosen selection.  Click Save
 
 <img src="https://github.com/miketran-okta/accessgateway-oracle/blob/master/3.png"/>
+
+After authentication (via HTTP header), Oracle applications require a JAAS subject and principals to support downstream authorization.  This process typically entials querying Oracle Internet Directory but in this case we will be using Okta's LDAP Interface.
 
 - Add a new Provider with the name `Okta`, select **LDAPAuthenticator** under `Type` and then click OK
 
