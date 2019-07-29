@@ -71,7 +71,9 @@ If you already are using Oracle Access Manager, then you can leave your existing
 
 <img src="https://github.com/miketran-okta/accessgateway-oracle/blob/master/3.png"/>
 
-After authentication (via HTTP header), Oracle applications require a JAAS subject and principals to support downstream authorization.  This process typically entials querying Oracle Internet Directory but in this case we will be using Okta's LDAP Interface.
+## LDAP Authentication Provider
+
+After authentication (via HTTP header), Oracle applications require a JAAS subject and principals to support downstream authorization within the Oracle apps.  This process typically entials querying Oracle Internet Directory but in this case we will be using Okta's LDAP Interface.
 
 - Add a new Provider with the name `Okta`, select **LDAPAuthenticator** under `Type` and then click OK
 
@@ -100,6 +102,8 @@ After authentication (via HTTP header), Oracle applications require a JAAS subje
   - Click Save
   
   <img src="https://github.com/miketran-okta/accessgateway-oracle/blob/master/7.png"/>
+  
+## Reorder WebLogic Providers
   
 - Go back to the Providers menu and select **DefaultAuthenticator**.  Update the `Control Flag` to **Sufficient**
 
